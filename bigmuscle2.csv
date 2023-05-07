@@ -1,0 +1,11 @@
+﻿rut,nombre_completo,edad,cod_plan,descripcion_plan,desde,hasta,cod_sede,ubicacion_sede
+11111111-1,Juan Andrés Pérez González,28,F01,full,01/01/2023,31/12/2023,s01,Providencia
+22222222-2,Luis Pedro Tapia Alarcón,32,T03,3tweek,01/03/2023,31/03/2023,s02,Santiago Centro
+40-K,Ana María Lagos Chacon,26,F01,full,01/03/2023,29/02/2024,s02,Santiago Centro
+88888888-8,Marta Inés Salas Ortiz,35,T01,tono,15/01/2023,14/01/2024,s01,Providencia
+99999999-9,Francisco Javier Vega Silva,30,F02,fuerza,01/02/2023,31/01/2024,s03,Ñuñoa
+77777777-7,Camila Andrea Rojas Fuentes,24,F01,full,01/03/2023,28/02/2024,s02,Santiago Centro
+55555555-5,Diego Alejandro Orellana Flores,28,T02,2tweek,01/04/2023,30/04/2023,s01,Providencia
+33333333-3,Carla Isabel Sandoval Soto,29,T01,tono,01/01/2023,31/03/2023,s02,Santiago Centro
+44444444-4,Juan Carlos Vargas Pérez,33,F03,fuerza,01/02/2023,31/01/2024,s03,Ñuñoa
+66666666-6,Daniela Belén Ortiz Espinoza,27,T03,3tweek,01/03/2023,31/03/2023,s02,Santiago Centro
