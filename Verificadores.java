@@ -49,7 +49,10 @@ public class Verificadores
                 return true;
             }
         };
-        System.out.println("No existe la sede " + codigo);
+        System.out.println("No existe la sede " + codigo + ". Las sedes que existen son:");
+        for (Sede sede : uniqueSedes) {
+            System.out.println(sede.codSede);
+        }
         return false;
     }
 
@@ -59,7 +62,10 @@ public class Verificadores
                 return true;
             }
         };
-        System.out.println("No existe el plan " + codigo);
+        System.out.println("No existe el plan " + codigo + ". Los planes que existen son:");
+        for (Plan plan : uniquePlans) {
+            System.out.println(plan.codPlan);
+        }
         return false;
     }
 

@@ -53,18 +53,12 @@ public class Client {
         return this.rut;
     }
 
-    public String[] getSede() {
-        return new String[] {
-            this.sede.codSede,
-            this.sede.ubicSede
-        };
+    public String getSede() {
+        return this.sede.codSede;
     }
 
-    public String[] getPlan() {
-        return new String[] {
-            this.plan.codPlan,
-            this.plan.descPlan
-        };
+    public String getPlan() {
+        return this.plan.codPlan;
     }
 
     public String[] getData() {
