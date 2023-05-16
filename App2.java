@@ -3,6 +3,8 @@ import java.text.ParseException;
 import java.util.*;
 
 class Main {
+        
+    public static boolean FlagChanges = false;
     public static void main(String[] args) throws ParseException, IOException {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Client> fileData = new ArrayList<Client>();
@@ -10,7 +12,10 @@ class Main {
         ArrayList<Sede> uniqueSedes = new ArrayList<Sede>();
         Utils.leerArchivo("bigmuscle2.csv", fileData, uniquePlans, uniqueSedes);
         Utils.menu(fileData, uniquePlans, uniqueSedes, scanner);
-        // Utils.guardarArchivo("bigmuscle2.csv", "bigmuscle2.bak", fileData);
+        if (FlagChanges) {
+            Utils.guardarArchivo("bigmuscle2.csv", "bigmuscle2.bak", fileData);
+            System.out.println("Archivo guardado con exito");
+        }
         scanner.close();
     }
 }

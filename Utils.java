@@ -215,6 +215,10 @@ public class Utils {
         fileData.remove(index);
     }
 
+    public static void orderClientes(ArrayList<Client> fileData){
+        fileData.sort((a,b)->a.getNombre().compareTo(b.getNombre()));
+    }
+
     public static void addSede(ArrayList<Sede> uniqueSedes, Scanner scanner) {
         System.out.print("Ingrese el código de la sede: ");
         String codigo = scanner.nextLine();

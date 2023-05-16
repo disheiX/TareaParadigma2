@@ -12,7 +12,7 @@ public class Menu {
             "2) Eliminar cliente",
             "3) Editar cliente",
             "4) Buscar cliente",
-            "5) Ordenar clientes",
+            "5) Ordenar clientes alfabeticamente",
             "6) Lista clientes",
             "7) Atrás"
         };
@@ -25,6 +25,8 @@ public class Menu {
                     System.out.println("A continuación, se agregará un cliente...");
                     Utils.parseCliente(Utils.agregarCliente(data, uniquePlans, uniqueSede, scanner), data);
                     System.out.println("Cliente agregado exitosamente.");
+                    
+                    Main.FlagChanges = true;
                     pressEnter();
                 } else if (choice == 2) {
                     System.out.println("------------------------------------------------");
@@ -33,6 +35,7 @@ public class Menu {
                     if (index != 0) {
                         data.remove(index);
                         System.out.println("El cliente ingresado se ha borrado exitosamente");
+                        Main.FlagChanges = true;
                         pressEnter();
                     }
                 } else if (choice == 3) {
@@ -41,6 +44,7 @@ public class Menu {
                     int index = queryClient(scanner, data);
                     if (index != 0) {
                         Utils.editCliente(index, uniquePlans, uniqueSede, data, scanner);
+                        Main.FlagChanges = true;
                         pressEnter();
                     }
                 } else if (choice == 4) {
@@ -83,6 +87,8 @@ public class Menu {
                 } else if (choice == 5) {
                     // ...
                     System.out.println("------------------------------------------------");
+                    Utils.orderClientes(data);
+                    Main.FlagChanges = true;
                     System.out.println("Lista de clientes ordenada existosamente");
                     pressEnter();
                 } else if (choice == 6) {
@@ -122,9 +128,11 @@ public class Menu {
                 choice = Integer.parseInt(scanner.nextLine().trim());
                 if (choice == 1) {
                     Utils.addPlan(uniquePlans, scanner);
+                    Main.FlagChanges = true;
                     pressEnter();
                 } else if (choice == 2) {
                     Utils.delPlan(uniquePlans, data, scanner);
+                    Main.FlagChanges = true;
                     pressEnter();
                 } else if (choice == 3) {
                     int index = queryClient(scanner, data);
@@ -132,6 +140,7 @@ public class Menu {
                         String[] opcion = new String[] {Integer.toString(4), Integer.toString(index)};
                         Utils.parseCliente(Utils.agregarCliente(data, uniquePlans, uniqueSede, scanner, opcion), data);
                         data.remove(index);
+                        Main.FlagChanges = true;
                         System.out.println("Plan cambiado exitosamente");
                         pressEnter();
                     }
@@ -170,9 +179,11 @@ public class Menu {
                 choice = Integer.parseInt(scanner.nextLine().trim());
                 if (choice == 1) {
                     Utils.addSede(uniqueSede, scanner);
+                    Main.FlagChanges = true;
                     pressEnter();
                 } else if (choice == 2) {
                     Utils.delSede(uniqueSede, data, scanner);
+                    Main.FlagChanges = true;
                     pressEnter();
                 } else if (choice == 3) {
                     int index = queryClient(scanner, data);
@@ -180,6 +191,7 @@ public class Menu {
                         String[] opcion = new String[] {Integer.toString(5), Integer.toString(index)};
                         Utils.parseCliente(Utils.agregarCliente(data, uniquePlans, uniqueSede, scanner, opcion), data);
                         data.remove(index);
+                        Main.FlagChanges = true;
                         System.out.println("Sede cambiada exitosamente");
                         pressEnter();
                     }
