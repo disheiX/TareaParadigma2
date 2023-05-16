@@ -155,15 +155,13 @@ public class Utils {
                 array[2] = scanner.nextLine();
             } while (Verificadores.esNumerico(array[2]) == false);
         }
-        if (opciones.contains("4") || opciones.contains("5")) {
+        if (opciones.contains("4")) {
             do {
                 System.out.print("Ingrese la fecha de inicio: ");
                 array[5] = scanner.nextLine();
                 System.out.print("Ingrese la fecha final: ");
                 array[6] = scanner.nextLine();
             } while (Verificadores.verificarFecha(array[5], array[6]) == false);
-        }
-        if (opciones.contains("4")) {
             do {
                 System.out.print("Ingrese la id plan: ");
                 array[3] = scanner.nextLine();
@@ -218,17 +216,17 @@ public class Utils {
     }
 
     public static void addSede(ArrayList<Sede> uniqueSedes, Scanner scanner) {
-        System.out.println("Ingrese el código de la sede: ");
+        System.out.print("Ingrese el código de la sede: ");
         String codigo = scanner.nextLine();
-        System.out.println("Ingrese la ubicacion de la sede: ");
+        System.out.print("Ingrese la ubicacion de la sede: ");
         String ubicacion = scanner.nextLine();
         uniqueSedes.add(new Sede(codigo, ubicacion));
     }
 
     public static void addPlan(ArrayList<Plan> uniquePlans, Scanner scanner) {
-        System.out.println("Ingrese el código del plan: ");
+        System.out.print("Ingrese el código del plan: ");
         String codigo = scanner.nextLine();
-        System.out.println("Ingrese la descripción del plan: ");
+        System.out.print("Ingrese la descripción del plan: ");
         String ubicacion = scanner.nextLine();
         uniquePlans.add(new Plan(codigo, ubicacion));
     }
@@ -275,5 +273,50 @@ public class Utils {
                 return;
             }
         }
+    }
+
+    public static void menu(ArrayList<Client> data, ArrayList<Plan> uniquePlans, ArrayList<Sede> uniqueSede, Scanner scanner) throws ParseException {
+        int choice = 0;
+        System.out.println("\n------------------------------------------"); 
+        System.out.println("Bienvenido/a al sofware oficial de BigMuscle"); 
+        System.out.println("Donde tus sueños no tienen límites");
+        System.out.println("------------------------------------------"); 
+
+        Menu.pressEnter();
+
+        do {
+            String choices[] = {
+                "1) Administrar cliente",
+                "2) Administrar planes",
+                "3) Administrar sedes",
+                "4) Salir"
+            };
+            Menu.printMenu("¿Qué se le ofrece el día de hoy?", choices);
+            try {
+                choice = Integer.parseInt(scanner.nextLine().trim());
+                switch(choice) {
+                case 1: 
+                    Menu.menuClientes(data, uniquePlans, uniqueSede, scanner);
+                    System.out.print("\033\143");
+                    break;
+                case 2: 
+                    Menu.menuPlanes(data, uniquePlans, uniqueSede, scanner);
+                    System.out.print("\033\143");
+                    break;
+                case 3:
+                    Menu.menuSedes(data, uniquePlans, uniqueSede, scanner);
+                    System.out.print("\033\143");
+                    break;
+                case 4: break;
+                default: 
+                    System.out.print("Opción inválida. ");
+                    Menu.pressEnter();
+                }
+            } 
+            catch (NumberFormatException e) {
+                System.out.print("Entrada inválida. ");
+                Menu.pressEnter();
+            }
+        } while (choice != 4);
     }
 }
